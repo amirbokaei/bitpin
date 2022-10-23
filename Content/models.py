@@ -1,4 +1,12 @@
 from django.db import models
+from User.models import User
+from django.db.models import Avg, Count
+
+
+class Rate(models.Model):
+    score = models.IntegerField()
+    user = models.ForeignKey('User.User', on_delete=models.CASCADE, null=False)
+    content = models.ForeignKey('Content', on_delete=models.CASCADE, null=False)
 
 
 class Content(models.Model):
